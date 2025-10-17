@@ -1,0 +1,566 @@
+// Variables de colores (igual que carreras)
+$color-primary: #2c5aa0;
+$color-secondary: #1e3a5f;
+$color-accent: #00a8e8;
+$color-background: #f8f9fa;
+$color-text: #333333;
+$color-white: #ffffff;
+$color-border: #e0e0e0;
+
+.estudiantes-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// Iconos usando caracteres simples
+.icon-schedule::before { content: "H"; font-style: normal; font-weight: bold; }
+.icon-certificate::before { content: "C"; font-style: normal; font-weight: bold; }
+.icon-transfer::before { content: "E"; font-style: normal; font-weight: bold; }
+.icon-virtual::before { content: "A"; font-style: normal; font-weight: bold; }
+.icon-articulation::before { content: "U"; font-style: normal; font-weight: bold; }
+.icon-scholarship::before { content: "B"; font-style: normal; font-weight: bold; }
+.icon-support::before { content: "S"; font-style: normal; font-weight: bold; }
+.icon-download::before { content: ""; font-style: normal; margin-right: 8px; }
+.icon-external::before { content: ""; font-style: normal; margin-right: 8px; }
+
+// Hero Section (igual que carreras)
+.hero-estudiantes {
+  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  color: $color-white;
+  padding: 80px 0 60px;
+  text-align: center;
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 3px;
+    background: $color-accent;
+    margin: 0 auto;
+  }
+}
+
+// Grid de Servicios
+.servicios-estudiantes {
+  padding: 3rem 0;
+
+  .servicios-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+// Tarjetas de Servicio
+.servicio-card {
+  background: $color-white;
+  border-radius: 10px;
+  border: 1px solid $color-border;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &.active {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  }
+
+  .servicio-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $color-background;
+    }
+
+    .servicio-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: $color-primary;
+      width: 40px;
+      height: 40px;
+      background: $color-background;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .servicio-title {
+      flex: 1;
+      font-size: 1.3rem;
+      color: $color-primary;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .servicio-arrow {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: $color-primary;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .servicio-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &.active {
+      max-height: 1000px;
+    }
+  }
+}
+
+// Contenido específico de cada servicio
+.servicio-content > div {
+  padding: 2rem;
+  border-top: 1px solid $color-border;
+}
+
+// Selector de carrera (para horarios)
+.selector-carrera {
+  margin-bottom: 2rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  .form-select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    border: 2px solid $color-border;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: $color-white;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+}
+
+// Tabla de horarios
+.horario-tabla {
+  h4 {
+    color: $color-primary;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .tabla-horarios {
+    overflow-x: auto;
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: $color-white;
+
+      th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid $color-border;
+      }
+
+      th {
+        background: $color-primary;
+        color: $color-white;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+      }
+
+      tr:hover {
+        background: $color-background;
+      }
+    }
+  }
+}
+
+// Lista de documentos (constancias)
+.documentos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.documento-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: $color-background;
+  border-radius: 8px;
+  border-left: 4px solid $color-accent;
+
+  .doc-info {
+    flex: 1;
+
+    h5 {
+      margin: 0 0 0.5rem 0;
+      color: $color-primary;
+      font-size: 1.1rem;
+    }
+
+    p {
+      margin: 0;
+      color: $color-text;
+      opacity: 0.8;
+    }
+  }
+
+  .btn-descargar {
+    background: $color-accent;
+    color: $color-white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: #0086c0;
+    }
+  }
+}
+
+// Info boxes (equivalencias)
+.info-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.info-box {
+  background: $color-white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid $color-border;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  h5 {
+    color: $color-primary;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+
+      &:before {
+        content: "";
+        color: $color-accent;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+// Aula virtual
+.acceso-rapido {
+  .btn-plataforma {
+    display: inline-flex;
+    align-items: center;
+    background: $color-primary;
+    color: $color-white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-bottom: 2rem;
+
+    &:hover {
+      background-color: #1e3a5f;
+    }
+  }
+
+  .ayuda-links {
+    h5 {
+      color: $color-primary;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+
+        a {
+          color: $color-accent;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $color-primary;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Grid de universidades (articulaciones)
+.universidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.universidad-card {
+  background: $color-white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid $color-border;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  h5 {
+    color: $color-primary;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0 0 1rem 0;
+    color: $color-text;
+    opacity: 0.8;
+  }
+
+  .badge {
+    background: $color-accent;
+    color: $color-white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+// Lista de becas
+.becas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.beca-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: $color-background;
+  border-radius: 8px;
+  border-left: 4px solid $color-accent;
+
+  h5 {
+    margin: 0 0 0.5rem 0;
+    color: $color-primary;
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0;
+    color: $color-text;
+    opacity: 0.8;
+  }
+
+  .beca-estado {
+    background: $color-accent;
+    color: $color-white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &.disponible {
+      background: #28a745;
+    }
+    
+    &.cerrado {
+      background: #6c757d;
+    }
+  }
+}
+
+// Servicios de apoyo
+.servicios-apoyo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.servicio-apoyo {
+  background: $color-white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid $color-border;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+
+  h5 {
+    color: $color-primary;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+    color: $color-text;
+  }
+}
+
+// Botones (mismo estilo que carreras)
+.btn-primary {
+  background: $color-primary;
+  color: $color-white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #1e3a5f;
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $color-primary;
+    color: $color-white;
+  }
+}
+
+// Información de contacto
+.contacto-info,
+.contacto-urgencia {
+  background: $color-background;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+
+  p {
+    margin: 0;
+    color: $color-text;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .hero-estudiantes {
+    padding: 60px 0 40px;
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+
+  .servicio-header {
+    padding: 1rem;
+
+    .servicio-icon {
+      font-size: 1.2rem;
+      width: 35px;
+      height: 35px;
+    }
+
+    .servicio-title {
+      font-size: 1.1rem;
+    }
+  }
+
+  .documento-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    .btn-descargar {
+      align-self: stretch;
+      text-align: center;
+    }
+  }
+
+  .beca-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    .beca-estado {
+      align-self: flex-start;
+    }
+  }
+
+  .info-boxes,
+  .universidades-grid,
+  .servicios-apoyo {
+    grid-template-columns: 1fr;
+  }
+
+  .servicio-content > div {
+    padding: 1.5rem;
+  }
+}

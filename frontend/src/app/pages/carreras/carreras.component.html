@@ -1,0 +1,170 @@
+<div class="carreras-page">
+    <!-- Hero Section -->
+    <section class="hero-carreras">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Nuestras Carreras</h1>
+          <p class="hero-subtitle">Formación técnica especializada con salida laboral</p>
+          <div class="hero-divider"></div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Filtro de Pestañas -->
+    <section class="filtro-carreras">
+      <div class="container">
+        <div class="tabs-filtro">
+          @for (tab of tabs; track tab.id) {
+            <button 
+              class="tab-filtro" 
+              [class.active]="pestaniaActiva() === tab.id"
+              (click)="cambiarPestania(tab.id)"
+              type="button">
+              {{ tab.label }}
+            </button>
+          }
+        </div>
+      </div>
+    </section>
+  
+    <!-- Contenido de Carreras -->
+    <section class="carreras-content">
+      <div class="container">
+        
+        <!-- Todas las Carreras -->
+        @if (pestaniaActiva() === 'todas') {
+          <div class="carreras-grid">
+            @for (carrera of carreras; track carrera.id) {
+              <div class="carrera-card">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="icon-{{carrera.id}}"></i>
+                  </div>
+                  <h3 class="card-title">{{ carrera.nombreCorto }}</h3>
+                </div>
+                <div class="card-info">
+                  @for (info of carrera.info; track info) {
+                    <span class="info-item">{{ info }}</span>
+                  }
+                </div>
+                <p class="card-description">
+                  {{ carrera.descripcion }}
+                </p>
+                <div class="card-actions">
+                  <button 
+                    class="btn-primary" 
+                    (click)="cambiarPestania(carrera.id)"
+                    type="button">
+                    Ver Detalles
+                  </button>
+                  <button 
+                    class="btn-secondary" 
+                    (click)="descargarPDF(carrera.id)"
+                    type="button">
+                    Descargar PDF
+                  </button>
+                </div>
+              </div>
+            }
+          </div>
+        }
+  
+        <!-- Detalle de Carrera Específica -->
+        @if (pestaniaActiva() !== 'todas') {
+          @let carreraDetalle = obtenerCarreraDetalle(pestaniaActiva());
+          @if (carreraDetalle) {
+            <div class="carrera-detalle">
+              <div class="detalle-header">
+                <div class="detalle-icon">
+                  <i class="icon-{{carreraDetalle.id}}"></i>
+                </div>
+                <div class="detalle-titulo">
+                  <h2>{{ carreraDetalle.nombreCompleto }}</h2>
+                  <button 
+                    class="btn-descargar" 
+                    (click)="descargarPDF(carreraDetalle.id)"
+                    type="button">
+                    <i class="icon-download"></i> Descargar Plan Completo
+                  </button>
+                </div>
+              </div>
+  
+              <div class="detalle-info-grid">
+                @for (info of carreraDetalle.informacion; track info.titulo) {
+                  <div class="info-box">
+                    <div class="info-icon">
+                      <i class="icon-{{info.icono}}"></i>
+                    </div>
+                    <div class="info-content">
+                      <h4>{{ info.titulo }}</h4>
+                      <p>{{ info.valor }}</p>
+                    </div>
+                  </div>
+                }
+              </div>
+  
+              <!-- Descripción -->
+              <div class="seccion-contenido">
+                <h3>Descripción de la Carrera</h3>
+                <p>{{ carreraDetalle.descripcionCompleta }}</p>
+              </div>
+  
+              <!-- Plan de Estudios -->
+              <div class="seccion-contenido">
+                <h3>Plan de Estudios</h3>
+                <div class="acordeon-plan">
+                  @for (anio of [1,2,3]; track anio) {
+                    @let index = $index;
+                    <div class="acordeon-item">
+                      <button 
+                        class="acordeon-header" 
+                        (click)="toggleAcordeon(carreraDetalle.id, index)"
+                        type="button"
+                        [attr.aria-expanded]="esAcordeonAbierto(carreraDetalle.id, index)">
+                        <span>{{ anio }}° Año</span>
+                        <span class="acordeon-icon">
+                          {{ esAcordeonAbierto(carreraDetalle.id, index) ? '−' : '+' }}
+                        </span>
+                      </button>
+                      @if (esAcordeonAbierto(carreraDetalle.id, index)) {
+                        <div class="acordeon-content active">
+                          <div class="materias-lista">
+                            @for (materia of obtenerMaterias(carreraDetalle.id, anio); track materia.nombre) {
+                              <div class="materia-item">
+                                <span class="materia-nombre">{{ materia.nombre }}</span>
+                                <span class="materia-horas">{{ materia.horas }} horas</span>
+                              </div>
+                            }
+                          </div>
+                        </div>
+                      }
+                    </div>
+                  }
+                </div>
+              </div>
+  
+              <!-- Perfil del Egresado -->
+              <div class="seccion-contenido">
+                <h3>Perfil del Egresado</h3>
+                <ul class="lista-perfil">
+                  @for (perfil of carreraDetalle.perfilEgresado; track perfil) {
+                    <li>{{ perfil }}</li>
+                  }
+                </ul>
+              </div>
+  
+              <!-- Requisitos -->
+              <div class="seccion-contenido">
+                <h3>Requisitos de Inscripción</h3>
+                <ul class="lista-requisitos">
+                  @for (requisito of carreraDetalle.requisitos; track requisito) {
+                    <li>{{ requisito }}</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </section>
+  </div>

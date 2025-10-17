@@ -1,0 +1,420 @@
+// Variables de colores inspiradas en Teclab
+$color-primary: #2c5aa0;
+$color-secondary: #1e3a5f;
+$color-accent: #00a8e8;
+$color-background: #f8f9fa;
+$color-text: #333333;
+$color-white: #ffffff;
+$color-border: #e0e0e0;
+
+.carreras-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// Hero Section estilo Teclab
+.hero-carreras {
+  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  color: $color-white;
+  padding: 80px 0 60px;
+  text-align: center;
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 3px;
+    background: $color-accent;
+    margin: 0 auto;
+  }
+}
+
+// Filtro de pestañas
+.filtro-carreras {
+  background: $color-white;
+  padding: 2rem 0;
+  border-bottom: 1px solid $color-border;
+
+  .tabs-filtro {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-filtro {
+    padding: 12px 24px;
+    border: 2px solid $color-primary;
+    background: transparent;
+    color: $color-primary;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($color-primary, 0.1);
+    }
+
+    &.active {
+      background: $color-primary;
+      color: $color-white;
+    }
+  }
+}
+
+// Grid de carreras
+.carreras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+.carrera-card {
+  background: $color-white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 1px solid $color-border;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-right: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      color: $color-primary;
+      margin: 0;
+    }
+  }
+
+  .card-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+
+    .info-item {
+      background: $color-background;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      color: $color-text;
+    }
+  }
+
+  .card-description {
+    color: $color-text;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 1rem;
+
+    .btn-primary {
+      background: $color-primary;
+      color: $color-white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: darken($color-primary, 10%);
+      }
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: $color-primary;
+      border: 2px solid $color-primary;
+      padding: 8px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $color-primary;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+// Detalle de carrera
+.carrera-detalle {
+  padding: 3rem 0;
+
+  .detalle-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+
+    .detalle-icon {
+      font-size: 4rem;
+      margin-right: 2rem;
+    }
+
+    .detalle-titulo {
+      flex: 1;
+
+      h2 {
+        color: $color-primary;
+        margin: 0 0 1rem 0;
+        font-size: 2.2rem;
+      }
+
+      .btn-descargar {
+        background: $color-accent;
+        color: $color-white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: darken($color-accent, 10%);
+        }
+      }
+    }
+  }
+
+  .detalle-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .info-box {
+    background: $color-white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid $color-accent;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+
+    .info-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+
+    .info-content {
+      h4 {
+        margin: 0 0 0.5rem 0;
+        color: $color-primary;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $color-text;
+      }
+    }
+  }
+
+  .seccion-contenido {
+    margin-bottom: 3rem;
+
+    h3 {
+      color: $color-primary;
+      border-bottom: 2px solid $color-accent;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    p {
+      line-height: 1.7;
+      color: $color-text;
+    }
+  }
+}
+
+// Acordeón de plan de estudios
+.acordeon-plan {
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.acordeon-item {
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.acordeon-header {
+  width: 100%;
+  background: $color-background;
+  border: none;
+  padding: 1.5rem;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $color-primary;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: darken($color-background, 5%);
+  }
+
+  .acordeon-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+}
+
+.acordeon-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  &.active {
+    max-height: 500px;
+  }
+
+  .materias-lista {
+    padding: 1.5rem;
+    background: $color-white;
+  }
+
+  .materia-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .materia-nombre {
+      font-weight: 500;
+      color: $color-text;
+    }
+
+    .materia-horas {
+      color: $color-primary;
+      font-weight: 600;
+      background: $color-background;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Listas
+.lista-perfil,
+.lista-requisitos {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+
+    &:before {
+      content: "";
+      color: $color-accent;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.lista-requisitos li:before {
+  content: "";
+  color: $color-primary;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .hero-carreras {
+    padding: 60px 0 40px;
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+
+  .carreras-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .detalle-header {
+    flex-direction: column;
+    text-align: center;
+
+    .detalle-icon {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .detalle-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .tabs-filtro {
+    flex-direction: column;
+    align-items: center;
+  }
+}

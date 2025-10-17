@@ -1,0 +1,312 @@
+<div class="estudiantes-page">
+  <!-- Hero Section -->
+  <section class="hero-estudiantes">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Área de Estudiantes</h1>
+        <p class="hero-subtitle">Toda la información y recursos para tu trayectoria académica</p>
+        <div class="hero-divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de Servicios -->
+  <section class="servicios-estudiantes">
+    <div class="container">
+      <div class="servicios-grid">
+        
+        <!-- Horarios -->
+        <div class="servicio-card" [class.active]="seccionActiva() === 'horarios'">
+          <div class="servicio-header" (click)="toggleSeccion('horarios')">
+            <div class="servicio-icon">
+              <i class="icon-schedule"></i>
+            </div>
+            <h3 class="servicio-title">Horarios</h3>
+            <span class="servicio-arrow">{{ seccionActiva() === 'horarios' ? '−' : '+' }}</span>
+          </div>
+          @if (seccionActiva() === 'horarios') {
+            <div class="servicio-content active">
+              <div class="horarios-content">
+                <div class="selector-carrera">
+                  <label for="carreraSelect">Seleccioná tu carrera:</label>
+                  <select id="carreraSelect" (change)="cambiarCarrera($event)" class="form-select">
+                    <option value="">-- Elegí una carrera --</option>
+                    <option value="sistemas">Sistemas Embebidos IoT</option>
+                    <option value="eficiencia">Eficiencia Energética</option>
+                  </select>
+                </div>
+                
+                @if (carreraSeleccionada()) {
+                  <div class="horario-tabla">
+                    <h4>Horarios - {{ carreraSeleccionada() === 'sistemas' ? 'Sistemas Embebidos IoT' : 'Eficiencia Energética' }}</h4>
+                    <div class="tabla-horarios">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Materia</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                            <th>Aula</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Matemática I</td>
+                            <td>Lunes y Miércoles</td>
+                            <td>18:00 - 20:00</td>
+                            <td>Aula 12</td>
+                          </tr>
+                          <tr>
+                            <td>Programación I</td>
+                            <td>Martes y Jueves</td>
+                            <td>18:00 - 20:00</td>
+                            <td>Lab. 3</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Constancias -->
+        <div class="servicio-card" [class.active]="seccionActiva() === 'constancias'">
+          <div class="servicio-header" (click)="toggleSeccion('constancias')">
+            <div class="servicio-icon">
+              <i class="icon-certificate"></i>
+            </div>
+            <h3 class="servicio-title">Constancias</h3>
+            <span class="servicio-arrow">{{ seccionActiva() === 'constancias' ? '−' : '+' }}</span>
+          </div>
+          @if (seccionActiva() === 'constancias') {
+            <div class="servicio-content active">
+              <div class="constancias-content">
+                <h4>Solicitud de Constancias</h4>
+                <p>Descargá los formularios para solicitar diferentes tipos de constancias:</p>
+                
+                <div class="documentos-list">
+                  <div class="documento-item">
+                    <div class="doc-info">
+                      <h5>Constancia de Alumno Regular</h5>
+                      <p>Certifica que sos alumno regular de la institución</p>
+                    </div>
+                    <button class="btn-descargar" (click)="descargarDocumento('constancia-regular')">
+                      <i class="icon-download"></i> Descargar PDF
+                    </button>
+                  </div>
+                  
+                  <div class="documento-item">
+                    <div class="doc-info">
+                      <h5>Constancia de Exámenes</h5>
+                      <p>Listado de materias aprobadas y a rendir</p>
+                    </div>
+                    <button class="btn-descargar" (click)="descargarDocumento('constancia-examenes')">
+                      <i class="icon-download"></i> Descargar PDF
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Equivalencias -->
+        <div class="servicio-card" [class.active]="seccionActiva() === 'equivalencias'">
+          <div class="servicio-header" (click)="toggleSeccion('equivalencias')">
+            <div class="servicio-icon">
+              <i class="icon-transfer"></i>
+            </div>
+            <h3 class="servicio-title">Equivalencias</h3>
+            <span class="servicio-arrow">{{ seccionActiva() === 'equivalencias' ? '−' : '+' }}</span>
+          </div>
+          @if (seccionActiva() === 'equivalencias') {
+            <div class="servicio-content active">
+              <div class="equivalencias-content">
+                <h4>Sistema de Equivalencias</h4>
+                <p>Si venís de otra institución, podés solicitar equivalencias de materias aprobadas.</p>
+                
+                <div class="info-boxes">
+                  <div class="info-box">
+                    <h5>Requisitos</h5>
+                    <ul>
+                      <li>Programa de la materia cursada</li>
+                      <li>Certificado de aprobación</li>
+                      <li>Analítico parcial</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="info-box">
+                    <h5>Fechas</h5>
+                    <p>Las solicitudes se reciben durante el primer mes de cada cuatrimestre</p>
+                  </div>
+                </div>
+                
+                <button class="btn-primary" (click)="descargarDocumento('solicitud-equivalencias')">
+                  <i class="icon-download"></i> Descargar Formulario
+                </button>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Aula Virtual -->
+        <div class="servicio-card" [class.active]="seccionActiva() === 'aula-virtual'">
+          <div class="servicio-header" (click)="toggleSeccion('aula-virtual')">
+            <div class="servicio-icon">
+              <i class="icon-virtual"></i>
+            </div>
+            <h3 class="servicio-title">Aula Virtual</h3>
+            <span class="servicio-arrow">{{ seccionActiva() === 'aula-virtual' ? '−' : '+' }}</span>
+          </div>
+          @if (seccionActiva() === 'aula-virtual') {
+            <div class="servicio-content active">
+              <div class="aula-virtual-content">
+                <h4>Plataforma de Educación a Distancia</h4>
+                <p>Accedé a los materiales de estudio, foros y actividades de tus materias.</p>
+                
+                <div class="acceso-rapido">
+                  <a href="https://aula.ifts14.edu.ar" target="_blank" class="btn-plataforma">
+                    <i class="icon-external"></i> Ingresar al Aula Virtual
+                  </a>
+                  
+                  <div class="ayuda-links">
+                    <h5>¿Necesitás ayuda?</h5>
+                    <ul>
+                      <li><a href="#" (click)="verGuia($event)">Guía de uso de la plataforma</a></li>
+                      <li><a href="#" (click)="contactarSoporte($event)">Contactar soporte técnico</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Articulaciones -->
+        <div class="servicio-card" [class.active]="seccionActiva() === 'articulaciones'">
+          <div class="servicio-header" (click)="toggleSeccion('articulaciones')">
+            <div class="servicio-icon">
+              <i class="icon-articulation"></i>
+            </div>
+            <h3 class="servicio-title">Articulaciones</h3>
+            <span class="servicio-arrow">{{ seccionActiva() === 'articulaciones' ? '−' : '+' }}</span>
+          </div>
+          @if (seccionActiva() === 'articulaciones') {
+            <div class="servicio-content active">
+              <div class="articulaciones-content">
+                <h4>Continuidad Educativa</h4>
+                <p>Convenios con universidades para que puedas continuar tus estudios:</p>
+                
+                <div class="universidades-grid">
+                  <div class="universidad-card">
+                    <h5>Universidad Nacional de Tres de Febrero</h5>
+                    <p>Licenciatura en Tecnología Digital</p>
+                    <span class="badge">Convenio Activo</span>
+                  </div>
+                  
+                  <div class="universidad-card">
+                    <h5>Universidad de Buenos Aires</h5>
+                    <p>Licenciatura en Sistemas</p>
+                    <span class="badge">En negociación</span>
+                  </div>
+                </div>
+                
+                <div class="contacto-info">
+                  <p><strong>Consultas:</strong> coordinacion&#64;ifts14.edu.ar</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Becas -->
+        <div class="servicio-card" [class.active]="seccionActiva() === 'becas'">
+          <div class="servicio-header" (click)="toggleSeccion('becas')">
+            <div class="servicio-icon">
+              <i class="icon-scholarship"></i>
+            </div>
+            <h3 class="servicio-title">Becas</h3>
+            <span class="servicio-arrow">{{ seccionActiva() === 'becas' ? '−' : '+' }}</span>
+          </div>
+          @if (seccionActiva() === 'becas') {
+            <div class="servicio-content active">
+              <div class="becas-content">
+                <h4>Programas de Becas Disponibles</h4>
+                
+                <div class="becas-list">
+                  <div class="beca-item">
+                    <h5>Beca Excelencia Académica</h5>
+                    <p>Para estudiantes con promedio mayor a 8</p>
+                    <span class="beca-estado disponible">Disponible</span>
+                  </div>
+                  
+                  <div class="beca-item">
+                    <h5>Beca Asistencia Perfecta</h5>
+                    <p>Para estudiantes con 95% de asistencia</p>
+                    <span class="beca-estado disponible">Disponible</span>
+                  </div>
+                  
+                  <div class="beca-item">
+                    <h5>Beca Socioeconómica</h5>
+                    <p>Apoyo para estudiantes en situación vulnerable</p>
+                    <span class="beca-estado cerrado">Cerrado</span>
+                  </div>
+                </div>
+                
+                <button class="btn-primary" (click)="solicitarBeca()">
+                  Solicitar Información
+                </button>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Apoyo a Estudiantes -->
+        <div class="servicio-card" [class.active]="seccionActiva() === 'apoyo'">
+          <div class="servicio-header" (click)="toggleSeccion('apoyo')">
+            <div class="servicio-icon">
+              <i class="icon-support"></i>
+            </div>
+            <h3 class="servicio-title">Apoyo a Estudiantes</h3>
+            <span class="servicio-arrow">{{ seccionActiva() === 'apoyo' ? '−' : '+' }}</span>
+          </div>
+          @if (seccionActiva() === 'apoyo') {
+            <div class="servicio-content active">
+              <div class="apoyo-content">
+                <h4>Servicios de Apoyo Integral</h4>
+                
+                <div class="servicios-apoyo">
+                  <div class="servicio-apoyo">
+                    <h5>Tutorías Académicas</h5>
+                    <p>Apoyo personalizado en materias específicas</p>
+                    <button class="btn-outline" (click)="solicitarTutoria()">Solicitar Tutoría</button>
+                  </div>
+                  
+                  <div class="servicio-apoyo">
+                    <h5>Orientación Vocacional</h5>
+                    <p>Asesoramiento para tu proyecto educativo y profesional</p>
+                    <button class="btn-outline" (click)="solicitarOrientacion()">Solicitar Turno</button>
+                  </div>
+                  
+                  <div class="servicio-apoyo">
+                    <h5>Contención Psicológica</h5>
+                    <p>Acompañamiento para el bienestar emocional</p>
+                    <button class="btn-outline" (click)="solicitarContencion()">Contactar</button>
+                  </div>
+                </div>
+                
+                <div class="contacto-urgencia">
+                  <p><strong>Urgencias:</strong> psicologia&#64;ifts14.edu.ar | Tel: 11-2345-6789</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
