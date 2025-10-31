@@ -31,40 +31,52 @@
                   <label for="carreraSelect">Seleccioná tu carrera:</label>
                   <select id="carreraSelect" (change)="cambiarCarrera($event)" class="form-select">
                     <option value="">-- Elegí una carrera --</option>
-                    <option value="sistemas">Sistemas Embebidos IoT</option>
-                    <option value="eficiencia">Eficiencia Energética</option>
+                    <option value="sistemas">Tecnicatura Superior en Sistemas Embebidos e Internet de las Cosas</option>
+                    <option value="eficiencia">Tecnicatura Superior en Eficiencia Energética</option>
                   </select>
                 </div>
                 
                 @if (carreraSeleccionada()) {
-                  <div class="horario-tabla">
-                    <h4>Horarios - {{ carreraSeleccionada() === 'sistemas' ? 'Sistemas Embebidos IoT' : 'Eficiencia Energética' }}</h4>
-                    <div class="tabla-horarios">
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>Materia</th>
-                            <th>Día</th>
-                            <th>Horario</th>
-                            <th>Aula</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Matemática I</td>
-                            <td>Lunes y Miércoles</td>
-                            <td>18:00 - 20:00</td>
-                            <td>Aula 12</td>
-                          </tr>
-                          <tr>
-                            <td>Programación I</td>
-                            <td>Martes y Jueves</td>
-                            <td>18:00 - 20:00</td>
-                            <td>Lab. 3</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  <div class="horario-info">
+                    <h4>Horarios - {{ carreraSeleccionada() === 'sistemas' ? 'Tecnicatura Superior en Sistemas Embebidos e Internet de las Cosas' : 'Tecnicatura Superior en Eficiencia Energética' }}</h4>
+                    <p class="periodo-academico">2° Cuatrimestre 2025</p>
+                    
+                    @for (anio of getAniosUnicos(); track anio) {
+                      <div class="horario-tabla">
+                        <h5>{{ anio }}</h5>
+                        <div class="tabla-horarios">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>Materia</th>
+                                <th>Día</th>
+                                <th>Horario</th>
+                                <th>Profesor</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @for (horario of getHorariosPorAnio(anio); track $index) {
+                                <tr>
+                                  <td><strong>{{ horario.materia }}</strong></td>
+                                  <td>{{ horario.dia }}</td>
+                                  <td>{{ horario.horario }}</td>
+                                  <td>{{ horario.profesor }}</td>
+                                </tr>
+                              }
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    }
+                    
+                    <div class="horario-nota">
+                      <p><strong>Nota:</strong> Intervalo de 20:00 a 20:15 hs en todos los días.</p>
+                      <p><strong>Horarios:</strong> 1° hora: 18:00-18:40 | 2° hora: 18:40-19:20 | 3° hora: 19:20-20:00 | Intervalo | 4° hora: 20:15-20:55 | 5° hora: 20:55-21:35 | 6° hora: 21:35-22:15</p>
                     </div>
+                  </div>
+                } @else {
+                  <div class="seleccion-carrera-prompt">
+                    <p>Por favor, seleccioná tu carrera para ver los horarios correspondientes.</p>
                   </div>
                 }
               </div>
@@ -107,6 +119,16 @@
                       <i class="icon-download"></i> Descargar PDF
                     </button>
                   </div>
+
+                  <div class="documento-item">
+                    <div class="doc-info">
+                      <h5>Constancia de Materias Aprobadas</h5>
+                      <p>Certificado de materias cursadas y aprobadas</p>
+                    </div>
+                    <button class="btn-descargar" (click)="descargarDocumento('constancia-materias')">
+                      <i class="icon-download"></i> Descargar PDF
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -135,18 +157,31 @@
                       <li>Programa de la materia cursada</li>
                       <li>Certificado de aprobación</li>
                       <li>Analítico parcial</li>
+                      <li>DNI (frente y dorso)</li>
                     </ul>
                   </div>
                   
                   <div class="info-box">
-                    <h5>Fechas</h5>
+                    <h5>Fechas Importantes</h5>
                     <p>Las solicitudes se reciben durante el primer mes de cada cuatrimestre</p>
+                    <p><strong>Próximo período:</strong> Marzo 2025</p>
+                  </div>
+
+                  <div class="info-box">
+                    <h5>Presentación</h5>
+                    <p>Las solicitudes se presentan en Secretaría Académica</p>
+                    <p><strong>Horario:</strong> Lunes a Viernes 18:00-22:00</p>
                   </div>
                 </div>
                 
-                <button class="btn-primary" (click)="descargarDocumento('solicitud-equivalencias')">
-                  <i class="icon-download"></i> Descargar Formulario
-                </button>
+                <div class="botones-descarga">
+                  <button class="btn-primary" (click)="descargarDocumento('solicitud-equivalencias')">
+                    <i class="icon-download"></i> Descargar Formulario
+                  </button>
+                  <button class="btn-outline" (click)="descargarDocumento('guia-equivalencias')">
+                    <i class="icon-download"></i> Guía de Procedimiento
+                  </button>
+                </div>
               </div>
             </div>
           }
@@ -166,17 +201,29 @@
               <div class="aula-virtual-content">
                 <h4>Plataforma de Educación a Distancia</h4>
                 <p>Accedé a los materiales de estudio, foros y actividades de tus materias.</p>
-                
+                <br>
                 <div class="acceso-rapido">
-                  <a href="https://aula.ifts14.edu.ar" target="_blank" class="btn-plataforma">
+                  <a href="https://aulasvirtuales.bue.edu.ar/" target="_blank" class="btn-plataforma">
                     <i class="icon-external"></i> Ingresar al Aula Virtual
                   </a>
+                  
+                  <div class="plataforma-info">
+                    <div class="info-box">
+                      <h5>¿Cómo ingresar?</h5>
+                      <ul>
+                        <li>Usuario: tu DNI</li>
+                        <li>Contraseña: la proporcionada por la institución</li>
+                        <li>En caso de problemas, contactar a soporte</li>
+                      </ul>
+                    </div>
+                  </div>
                   
                   <div class="ayuda-links">
                     <h5>¿Necesitás ayuda?</h5>
                     <ul>
                       <li><a href="#" (click)="verGuia($event)">Guía de uso de la plataforma</a></li>
                       <li><a href="#" (click)="contactarSoporte($event)">Contactar soporte técnico</a></li>
+                      <li><a href="#" (click)="contactarSoporte($event)">Recuperar contraseña</a></li>
                     </ul>
                   </div>
                 </div>
@@ -203,19 +250,29 @@
                 <div class="universidades-grid">
                   <div class="universidad-card">
                     <h5>Universidad Nacional de Tres de Febrero</h5>
-                    <p>Licenciatura en Tecnología Digital</p>
-                    <span class="badge">Convenio Activo</span>
+                    <p><strong>Carrera:</strong> Licenciatura en Tecnología Digital</p>
+                    <p><strong>Duración:</strong> 2 años adicionales</p>
+                    <span class="badge disponible">Convenio Activo</span>
                   </div>
                   
                   <div class="universidad-card">
                     <h5>Universidad de Buenos Aires</h5>
-                    <p>Licenciatura en Sistemas</p>
-                    <span class="badge">En negociación</span>
+                    <p><strong>Carrera:</strong> Licenciatura en Sistemas</p>
+                    <p><strong>Estado:</strong> En proceso de negociación</p>
+                    <span class="badge negociacion">En negociación</span>
+                  </div>
+
+                  <div class="universidad-card">
+                    <h5>Universidad Nacional de San Martín</h5>
+                    <p><strong>Carrera:</strong> Ingeniería en Informática</p>
+                    <p><strong>Estado:</strong> Convenio en revisión</p>
+                    <span class="badge revision">En revisión</span>
                   </div>
                 </div>
                 
                 <div class="contacto-info">
                   <p><strong>Consultas:</strong> coordinacion&#64;ifts14.edu.ar</p>
+                  <p><strong>Horario de atención:</strong> Lunes a Viernes 18:00-21:00</p>
                 </div>
               </div>
             </div>
@@ -234,31 +291,43 @@
           @if (seccionActiva() === 'becas') {
             <div class="servicio-content active">
               <div class="becas-content">
-                <h4>Programas de Becas Disponibles</h4>
+                <h4>Principales Becas Disponibles</h4>
+                <p>Conocé las opciones de apoyo económico nacionales y de CABA para tu trayectoria académica.</p>
                 
                 <div class="becas-list">
                   <div class="beca-item">
-                    <h5>Beca Excelencia Académica</h5>
-                    <p>Para estudiantes con promedio mayor a 8</p>
-                    <span class="beca-estado disponible">Disponible</span>
+                    <div class="beca-info">
+                      <h5>Becas Progresar (Nivel Terciario/Universitario)</h5>
+                      <p>Programa nacional para estudiantes de nivel superior que cumplan ciertos requisitos.</p>
+                      <p><strong>Requisitos:</strong></p>
+                      <ul>
+                        <li>Ser argentino/a nativo, naturalizado o extranjero con residencia legal</li>
+                        <li>Edad: entre 18-24 años para ingresantes; hasta 30 años para avanzados</li>
+                        <li>Estar inscripto en la carrera y cumplir con regularidad académica</li>
+                      </ul>
+                      <p><a href="https://www.argentina.gob.ar/servicio/inscribirme-en-progresar-superior" target="_blank" class="beca-link">Más información</a></p>
+                    </div>
                   </div>
                   
                   <div class="beca-item">
-                    <h5>Beca Asistencia Perfecta</h5>
-                    <p>Para estudiantes con 95% de asistencia</p>
-                    <span class="beca-estado disponible">Disponible</span>
-                  </div>
-                  
-                  <div class="beca-item">
-                    <h5>Beca Socioeconómica</h5>
-                    <p>Apoyo para estudiantes en situación vulnerable</p>
-                    <span class="beca-estado cerrado">Cerrado</span>
+                    <div class="beca-info">
+                      <h5>Beca para Carreras Estratégicas de Nivel Superior (CABA)</h5>
+                      <p>Programa del Gobierno de la Ciudad de Buenos Aires para carreras estratégicas de formación docente o técnico-superior.</p>
+                      <p><strong>Requisitos:</strong></p>
+                      <ul>
+                        <li>Tener domicilio en CABA</li>
+                        <li>Ingresantes de entre 17 y 24 años</li>
+                        <li>Estudiantes regulares con alto rendimiento (80% de espacios curriculares aprobados)</li>
+                      </ul>
+                      <p><a href="https://buenosaires.gob.ar/educacion/estudiantes/beca-para-carreras-estrategicas-de-nivel-superior" target="_blank" class="beca-link">Más información</a></p>
+                    </div>
                   </div>
                 </div>
                 
-                <button class="btn-primary" (click)="solicitarBeca()">
-                  Solicitar Información
-                </button>
+                <div class="contacto-info">
+                  <p><strong>Información y asesoramiento:</strong> becas&#64;ifts14.edu.ar</p>
+                  <p><strong>Horario de atención:</strong> Lunes a Viernes 18:00-21:00</p>
+                </div>
               </div>
             </div>
           }
@@ -276,30 +345,30 @@
           @if (seccionActiva() === 'apoyo') {
             <div class="servicio-content active">
               <div class="apoyo-content">
-                <h4>Servicios de Apoyo Integral</h4>
+                <h4>Equipo de Ayudantes de Trabajos Prácticos</h4>
+                <p>Nuestro equipo de ayudantes está disponible para brindarte apoyo académico en tus trabajos prácticos y consultas sobre las materias.</p>
                 
-                <div class="servicios-apoyo">
-                  <div class="servicio-apoyo">
-                    <h5>Tutorías Académicas</h5>
-                    <p>Apoyo personalizado en materias específicas</p>
-                    <button class="btn-outline" (click)="solicitarTutoria()">Solicitar Tutoría</button>
+                <div class="ayudantes-list">
+                  <div class="ayudante-item">
+                    <h5>Alonso Castillo, Pablo José Carlos</h5>
                   </div>
                   
-                  <div class="servicio-apoyo">
-                    <h5>Orientación Vocacional</h5>
-                    <p>Asesoramiento para tu proyecto educativo y profesional</p>
-                    <button class="btn-outline" (click)="solicitarOrientacion()">Solicitar Turno</button>
+                  <div class="ayudante-item">
+                    <h5>Barani, Sebastián Eduardo</h5>
                   </div>
                   
-                  <div class="servicio-apoyo">
-                    <h5>Contención Psicológica</h5>
-                    <p>Acompañamiento para el bienestar emocional</p>
-                    <button class="btn-outline" (click)="solicitarContencion()">Contactar</button>
+                  <div class="ayudante-item">
+                    <h5>Bertani, Jorge Luis</h5>
+                  </div>
+                  
+                  <div class="ayudante-item">
+                    <h5>Tejerina, Sandra Patricia</h5>
                   </div>
                 </div>
                 
-                <div class="contacto-urgencia">
-                  <p><strong>Urgencias:</strong> psicologia&#64;ifts14.edu.ar | Tel: 11-2345-6789</p>
+                <div class="contacto-info">
+                  <p><strong>Consultas:</strong> ayudantes&#64;ifts14.edu.ar</p>
+                  <p><strong>Horario de atención:</strong> Consultar con cada ayudante según disponibilidad</p>
                 </div>
               </div>
             </div>

@@ -1,0 +1,56 @@
+1º AÑO - 1ª División - Sistemas Embebidos e Internet de las Cosas
+Horario,LUNES,MARTES,MIÉRCOLES,JUEVES,VIERNES,Profesor (LUNES),Profesor (MARTES),Profesor (MIÉRCOLES),Profesor (JUEVES),Profesor (VIERNES)
+18:00 a 18:40,Desarrollo de Sistemas Web,Circuitos Eléctric. y Electrónicos,Técn Programac,Elect. Digital y Microproc.,Des.de Sistemas Web,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Belaunde, Victor Manuel
+18:40 a 19:20,Desarrollo de Sistemas Web,Circuitos Eléctric. y Electrónicos,Técn Programac,Elect. Digital y Microproc.,Des. de Sistemas Web,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Belaunde, Victor Manuel
+19:20 a 20:00,Desarrollo de Sistemas Web,Circuitos Eléctric. y Electrónicos,Técn Programac,Elect. Digital y Microproc.,Des. de Sistemas Web,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Belaunde, Victor Manuel
+20:00 a 20:15,INTERVALO,,,,
+20:15 a 20:55,Desarrollo de Sistemas,Circuitos Eléctric. y,Técn Programac,Elect. Digital y Microproc.,Técn Programac,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Bertani, Jorge
+20:55 a 21:35,Desarrollo de Sistemas,Circuitos Eléctric. y,Técn Programac,Elect. Digital y Microproc.,Técn Programac,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Bertani, Jorge
+21:35 a 22:15,Desarrollo de Sistemas,Circuitos Eléctric. y,Técn Programac,Elect. Digital y Microproc.,Técn Programac,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Bertani, Jorge
+
+
+Puedo proporcionarte la información del horario en un formato que puedes copiar y pegar fácilmente en una hoja de cálculo (Excel, Google Sheets, etc.) usando el formato CSV (valores separados por comas).
+
+La información está organizada por Año y División, según el horario del 2º Cuatrimestre de 2025 para la Tecnicatura Superior en Sistemas Embebidos e Internet de las Cosas (TS SEIC) del IFTS N°14.
+
+
+1º AÑO - 1ª División - Sistemas Embebidos e Internet de las Cosas 
+
+Fragmento de código
+Horario,LUNES,MARTES,MIÉRCOLES,JUEVES,VIERNES,Profesor (LUNES),Profesor (MARTES),Profesor (MIÉRCOLES),Profesor (JUEVES),Profesor (VIERNES)
+18:00 a 18:40,Desarrollo de Sistemas Web,Circuitos Eléctric. y Electrónicos,Técn Programac,Elect. Digital y Microproc.,Des.de Sistemas Web,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Belaunde, Victor Manuel
+18:40 a 19:20,Desarrollo de Sistemas Web,Circuitos Eléctric. y Electrónicos,Técn Programac,Elect. Digital y Microproc.,Des. de Sistemas Web,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Belaunde, Victor Manuel
+19:20 a 20:00,Desarrollo de Sistemas Web,Circuitos Eléctric. y Electrónicos,Técn Programac,Elect. Digital y Microproc.,Des. de Sistemas Web,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Belaunde, Victor Manuel
+20:00 a 20:15,INTERVALO,,,,
+20:15 a 20:55,Desarrollo de Sistemas,Circuitos Eléctric. y,Técn Programac,Elect. Digital y Microproc.,Técn Programac,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Bertani, Jorge
+20:55 a 21:35,Desarrollo de Sistemas,Circuitos Eléctric. y,Técn Programac,Elect. Digital y Microproc.,Técn Programac,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Bertani, Jorge
+21:35 a 22:15,Desarrollo de Sistemas,Circuitos Eléctric. y,Técn Programac,Elect. Digital y Microproc.,Técn Programac,Belaunde, Victor Manuel,,Bertani, Jorge,Tejerina, Sandra,Bertani, Jorge
+
+1º AÑO - 2ª División - Sistemas Embebidos e Internet de las Cosas 
+Horario,LUNES,MARTES,MIÉRCOLES,JUEVES,VIERNES,Profesor (LUNES),Profesor (MARTES),Profesor (MIÉRCOLES),Profesor (JUEVES),Profesor (VIERNES)
+18:00 a 18:40,Des. y Testing de software,Protocolo de loT,Prog. y Com. en SE,Adm. Base de Datos,,Velárdez, Germán,Granzella, Damián Eduardo,Alonso Castillo, Pablo,Belaunde, Victor Manuel,
+18:40 a 19:20,Des. y Testing de software,Protocolo de loT,Prog. y Com. en SE,Adm. Base de Datos,,Velárdez, Germán,Granzella, Damián Eduardo,Alonso Castillo, Pablo,Belaunde, Victor Manuel,
+19:20 a 20:00,Des. y Testing de software,Protocolo de loT,Prog. y Com. en SE,Adm.Base de Datos,,Velárdez, Germán,Granzella, Damián Eduardo,Alonso Castillo, Pablo,Belaunde, Victor Manuel,
+20:00 a 20:15,INTERVALO,,,,
+20:15 a 20:55,Des. y Testing de software,Protocolo de loT,Prog. y Com. de SE,Adm. Base de Datos,Adm. Base de Datos,Velárdez, Germán,Granzella, Damián Eduardo,Alonso Castillo, Pablo,Belaunde, Víctor Manuel,Belaunde, Víctor Manuel
+20:55 a 21:35,Des. y Testing de software,Protocolo de loT,Prog. y Com. de SE,Adm. Base de Datos,Adm. Base de Datos,Velárdez, Germán,Granzella, Damián Eduardo,Alonso Castillo, Pablo,Belaunde, Victor Manuel,Belaunde, Víctor Manuel
+21:35 a 22:15,Des. y Testing de software,Protocolo de loT,Prog. y Com. de SE,Adm. Base de Datos,Adm. Base de Datos,Velárdez, Germán,Granzella, Damián Eduardo,Alonso Castillo, Pablo,Belaunde, Victor Manuel,Belaunde, Víctor Manuel
+2º AÑO - Sistemas Embebidos e Internet de las Cosas
+Horario,LUNES,MARTES,MIÉRCOLES,JUEVES,VIERNES,Profesor (LUNES),Profesor (MARTES),Profesor (MIÉRCOLES),Profesor (JUEVES),Profesor (VIERNES)
+18:00 a 18:40,,Sists. Ops. en Tipo. Real,Ciberseguridad en loT,,Des. aplics. Vdo. a BdD,,Gómez Molino, Hernán,Prieto, Gustavo,,Petroff, Maximiliano
+18:40 a 19:20,,Sists. Ops. en Tipo. Real,Ciberseguridad en loT,,Des. aplics. Vdo. a BdD,,Gómez Molino, Hernán,Prieto, Gustavo,,Petroff, Maximiliano
+19:20 a 20:00,,Sists. Ops. en Tipo. Real,Ciberseguridad en loT,,Des. aplics. Vdo. a BdD,,Gómez Molino, Hernán,Prieto, Gustavo,,Petroff, Maximiliano
+20:00 a 20:15,INTERVALO,,,,
+20:15 a 20:55,,Sists. Ops. en Tipo. Real,Ciberseguridad en loT,,Des. aplics. Vdo. a BdD,,Gómez Molino, Hernán,Prieto, Gustavo,,Petroff, Maximiliano
+20:55 a 21:35,,Sists. Ops. en Tipo. Real,Ciberseguridad en loT,,Des. aplics. Vdo. a BdD,,Gómez Molino, Hernán,Prieto, Gustavo,,Petroff, Maximiliano
+21:35 a 22:15,,Sists. Ops. en Tipo. Real,Ciberseguridad en loT,,Des. aplics. Vdo. a BdD,,Gómez Molino, Hernán,Prieto, Gustavo,,Petroff, Maximiliano
+
+3º AÑO - Sistemas Embebidos e Internet de las Cosas
+Horario,LUNES,MARTES,MIÉRCOLES,JUEVES,VIERNES,Profesor (LUNES),Profesor (MARTES),Profesor (MIÉRCOLES),Profesor (JUEVES),Profesor (VIERNES)
+18:00 a 18:40,Proc. de Aprendizaje Autom.,Proyecto Integrador,Proc. de Aprendizaje Automático,,Modelizado Minería Datos,Iaria, Pablo,Alonso Castillo, Pablo,Iaria, Pablo,,Rodríguez, Daniel F.
+18:40 a 19:20,Proc. de Aprendizaje Autom.,Proyecto Integrador,Proc. de Aprendizaje Automático,Proyecto Integrador,Modelizado Minería Datos,Iaria, Pablo,Alonso Castillo, Pablo,Iaria, Pablo,Alonso Castillo, Pablo,Rodríguez, Daniel F.
+19:20 a 20:00,Proc. de Aprendizaje,Proyecto Integrador,Proc. de Aprendizaje Automático,Proyecto Integrador,Modelizado Minería Datos,Iaria, Pablo,Alonso Castillo, Pablo,Iaria, Pablo,Alonso Castillo, Pablo,Rodríguez, Daniel F.
+20:00 a 20:15,INTERVALO,,,,
+20:15 a 20:55,Procde . Aprendizaje Autom.,Proyecto Integrador,Modelizado Minería Datos,Proyecto Integrador,Modelizado Minería Datos,Iaria, Pablo,Alonso Castillo, Pablo,Rodríguez, Daniel F.,Alonso Castillo, Pablo,Rodríguez, Daniel F.
+20:55 a 21:35,Procde . Aprendizaje Autom.,Proyecto Integrador,Modelizado Minería Datos,Proyecto Integrador,Modelizado Minería Datos,Iaria, Pablo,Alonso Castillo, Pablo,Rodríguez, Daniel F.,Alonso Castillo, Pablo,Rodríguez, Daniel F.
+21:35 a 22:15,Proc. de Aprendizaje Autom.,Proyecto Integrador,Modelizado Minería Datos,,Modelizado Minería Datos,Iaria, Pablo,Alonso Castillo, Pablo,Rodríguez, Daniel F.,,Rodríguez, Daniel F.

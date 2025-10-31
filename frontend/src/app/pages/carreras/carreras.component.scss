@@ -1,7 +1,7 @@
-// Variables de colores inspiradas en Teclab
-$color-primary: #2c5aa0;
-$color-secondary: #1e3a5f;
-$color-accent: #00a8e8;
+// Variables de colores oficiales IFTS N°14
+$color-primary: #00A8E8;  // Celeste para carreras
+$color-secondary: #0E4576;  // Azul
+$color-accent: #00A8E8;  // Celeste
 $color-background: #f8f9fa;
 $color-text: #333333;
 $color-white: #ffffff;
@@ -13,7 +13,7 @@ $color-border: #e0e0e0;
 
 // Hero Section estilo Teclab
 .hero-carreras {
-  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  background: linear-gradient(135deg, $color-secondary 0%, darken($color-secondary, 10%) 100%);
   color: $color-white;
   padding: 80px 0 60px;
   text-align: center;
@@ -36,7 +36,7 @@ $color-border: #e0e0e0;
   .hero-divider {
     width: 80px;
     height: 3px;
-    background: $color-accent;
+    background: $color-primary;
     margin: 0 auto;
   }
 }
@@ -56,20 +56,20 @@ $color-border: #e0e0e0;
 
   .tab-filtro {
     padding: 12px 24px;
-    border: 2px solid $color-primary;
+    border: 2px solid $color-secondary;
     background: transparent;
-    color: $color-primary;
+    color: $color-secondary;
     border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
-      background: rgba($color-primary, 0.1);
+      background: rgba($color-secondary, 0.1);
     }
 
     &.active {
-      background: $color-primary;
+      background: $color-secondary;
       color: $color-white;
     }
   }
@@ -108,7 +108,7 @@ $color-border: #e0e0e0;
 
     .card-title {
       font-size: 1.5rem;
-      color: $color-primary;
+      color: $color-secondary;
       margin: 0;
     }
   }
@@ -155,8 +155,8 @@ $color-border: #e0e0e0;
 
     .btn-secondary {
       background: transparent;
-      color: $color-primary;
-      border: 2px solid $color-primary;
+      color: $color-secondary;
+      border: 2px solid $color-secondary;
       padding: 8px 18px;
       border-radius: 5px;
       cursor: pointer;
@@ -164,7 +164,7 @@ $color-border: #e0e0e0;
       transition: all 0.3s ease;
 
       &:hover {
-        background: $color-primary;
+        background: $color-secondary;
         color: $color-white;
       }
     }
@@ -189,7 +189,7 @@ $color-border: #e0e0e0;
       flex: 1;
 
       h2 {
-        color: $color-primary;
+        color: $color-secondary;
         margin: 0 0 1rem 0;
         font-size: 2.2rem;
       }

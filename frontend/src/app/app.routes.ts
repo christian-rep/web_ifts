@@ -1,19 +1,22 @@
 import { Routes } from '@angular/router';
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 
 export const routes: Routes = [
-  { 
-    path: '', 
-    loadComponent: () => import('./pages/inicio/inicio.component').then(c => c.InicioComponent) 
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+  {
+    path: 'inicio',
+    loadComponent: () => import('./pages/inicio/inicio.component').then(c => c.InicioComponent)
   },
-  { 
-    path: 'institucional', 
+  {
+    path: 'institucional',
     loadComponent: () => import('./pages/institucional/inicio/inicio.component').then(c => c.InstitucionalInicioComponent) 
   },
   { 
     path: 'carreras', 
     loadComponent: () => import('./pages/carreras/carreras.component').then(c => c.CarrerasComponent) 
   },
+
   { 
     path: 'estudiantes', 
     loadComponent: () => import('./pages/estudiantes/estudiantes.component').then(c => c.EstudiantesComponent) 

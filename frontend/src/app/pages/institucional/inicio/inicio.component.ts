@@ -18,22 +18,10 @@ export class InstitucionalInicioComponent {
   
   autoridades: Autoridad[] = [
     {
-      nombre: 'María Elena',
-      apellido: 'Rodríguez',
-      cargo: 'Directora General',
-      email: 'directora@ifts14.edu.ar'
-    },
-    {
-      nombre: 'Carlos Alberto',
-      apellido: 'Fernández',
-      cargo: 'Vicedirector Académico',
-      email: 'vicedirector@ifts14.edu.ar'
-    },
-    {
-      nombre: 'Ana Beatriz',
-      apellido: 'González',
-      cargo: 'Secretaria Académica',
-      email: 'secretaria@ifts14.edu.ar'
+      nombre: 'Dr. M. Marcelo',
+      apellido: 'Canetti',
+      cargo: 'Rector',
+      email: 'rectoria@ifts14.edu.ar'
     }
   ];
 

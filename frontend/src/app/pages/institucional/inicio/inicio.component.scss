@@ -1,7 +1,7 @@
-// Variables de colores (igual que estudiantes y carreras)
-$color-primary: #2c5aa0;
-$color-secondary: #1e3a5f;
-$color-accent: #00a8e8;
+// Variables de colores oficiales IFTS N°14
+$color-primary: #EB840F;  // Naranja para institucional
+$color-secondary: #0E4576;  // Azul
+$color-accent: #EB840F;  // Naranja
 $color-background: #f8f9fa;
 $color-text: #333333;
 $color-white: #ffffff;
@@ -20,7 +20,7 @@ $color-border: #e0e0e0;
   text-align: center;
   margin-bottom: 3rem;
   padding: 2rem;
-  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  background: linear-gradient(135deg, $color-secondary 0%, darken($color-secondary, 10%) 100%);
   color: $color-white;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -102,7 +102,7 @@ section {
 
 .avatar-icon {
   font-size: 3rem;
-  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  background: linear-gradient(135deg, $color-secondary, darken($color-secondary, 15%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,7 +116,7 @@ section {
 }
 
 .cargo {
-  color: $color-primary;
+  color: $color-secondary;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }

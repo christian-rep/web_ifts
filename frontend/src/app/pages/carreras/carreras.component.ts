@@ -178,7 +178,22 @@ export class CarrerasComponent implements OnInit {
   }
 
   descargarPDF(carreraId: string): void {
-    console.log(`Descargando PDF para: ${carreraId}`);
-    alert(`Iniciando descarga del plan de estudios de ${carreraId}`);
+    const pdfUrls: { [key: string]: string } = {
+      'sistemas': '/assets/Tecnicatura Superior en Sistemas Embebidos e Internet de las Cosas.docx.pdf',
+      'eficiencia': '/assets/Tecnicatura Superior en Eficiencia Energética.docx.pdf'
+    };
+
+    const url = pdfUrls[carreraId];
+    if (url) {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = url.split('/').pop() || 'programa-estudio.pdf';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      console.error(`No se encontró PDF para la carrera: ${carreraId}`);
+    }
   }
 }
