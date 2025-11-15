@@ -13,22 +13,22 @@
     <div class="historia-content">
       <div class="historia-text">
         <p>
-          El Instituto de Formación Técnica Superior N°14 fue fundado en el año 1995 con el objetivo de brindar 
-          educación técnica de calidad en la Ciudad Autónoma de Buenos Aires. Desde sus inicios, el instituto 
-          se ha caracterizado por su compromiso con la excelencia académica y la formación de profesionales 
+          El Instituto de Formación Técnica Superior N°14 fue fundado en el año 1995 con el objetivo de brindar
+          educación técnica de calidad en la Ciudad Autónoma de Buenos Aires. Desde sus inicios, el instituto
+          se ha caracterizado por su compromiso con la excelencia académica y la formación de profesionales
           altamente capacitados.
         </p>
         <p>
-          A lo largo de sus casi 30 años de trayectoria, el IFTS14 ha formado a más de 5,000 técnicos superiores 
-          en diversas especialidades, contribuyendo significativamente al desarrollo tecnológico y profesional 
-          de la región. Nuestro instituto se ha consolidado como una institución de referencia en la formación 
-          técnica superior, reconocida por su innovación pedagógica y su estrecha vinculación con el sector 
+          A lo largo de sus casi 30 años de trayectoria, el IFTS14 ha formado a más de 5.000 técnicos superiores
+          en diversas especialidades, contribuyendo significativamente al desarrollo tecnológico y profesional
+          de la región. Nuestro instituto se ha consolidado como una institución de referencia en la formación
+          técnica superior, reconocida por su innovación pedagógica y su estrecha vinculación con el sector
           productivo.
         </p>
         <p>
-          En 2020, el instituto amplió su oferta académica incorporando nuevas carreras en el área de 
-          tecnologías de la información y eficiencia energética, respondiendo a las demandas del mercado 
-          laboral actual. Hoy, el IFTS14 continúa su misión de formar técnicos superiores comprometidos 
+          En 2020, el instituto amplió su oferta académica incorporando nuevas carreras en el área de
+          tecnologías de la información y eficiencia energética, respondiendo a las demandas del mercado
+          laboral actual. Hoy, el IFTS14 continúa su misión de formar técnicos superiores comprometidos
           con el desarrollo sostenible y la innovación tecnológica.
         </p>
       </div>
@@ -54,6 +54,39 @@
     </div>
   </section>
 
+  <!-- Profesores -->
+<section class="profesores-section">
+  <div class="section-header">
+    <h2>Profesores</h2>
+  </div>
+  <div class="carrusel-container">
+    <button class="carousel-button" (click)="retrocederProfesores()">&#9664;</button>
+
+    <div class="profesores-grid">
+      <div class="profesor-card" *ngFor="let profesor of profesoresVisibles">
+        <div class="profesor-avatar">
+          <img [src]="profesor.imagen" [alt]="profesor.nombre" loading="lazy" />
+        </div>
+        <div class="profesor-info">
+          <h3>{{ profesor.nombre }}</h3>
+          <p class="biografia" (click)="abrirBiografia(profesor)">Ver Biografía</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-button" (click)="avanzarProfesores()">&#9654;</button>
+  </div>
+
+  <div *ngIf="profesorSeleccionado" class="biografia-popup">
+    <div class="biografia-content">
+      <h3>{{ profesorSeleccionado.nombre }}</h3>
+      <p>{{ profesorSeleccionado.biografia }}</p>
+      <button (click)="cerrarBiografia()">Cerrar</button>
+    </div>
+  </div>
+</section>
+
+
   <!-- Documentos Institucionales -->
   <section class="documentos-section">
     <div class="section-header">
@@ -70,7 +103,7 @@
           </button>
         </div>
       </div>
-      
+
       <div class="documento-card">
         <div class="documento-icon"></div>
         <div class="documento-content">
@@ -84,49 +117,54 @@
     </div>
   </section>
 
-  <!-- Galería de Instalaciones -->
-  <section class="instalaciones-section">
-    <div class="section-header">
-      <h2>Galería</h2>
+  <!-- Instagram -->
+  <section class="instagram-section">
+    <div class="section-header instagram-header">
+      <h2>Últimas publicaciones en Instagram</h2>
+      <a
+        class="instagram-follow"
+        href="https://www.instagram.com/ifts.14/"
+        target="_blank"
+        rel="noopener"
+      >
+        Seguir &#64;ifts.14
+      </a>
     </div>
-    <div class="galeria-grid">
-      <div class="galeria-item">
-        <img src="/images/instituto/aula.jpg" alt="Aula de Clases" class="galeria-imagen">
-        <div class="galeria-overlay">
-          <p>Aula de Clases</p>
-        </div>
+
+    <ng-container *ngIf="instagramPosts.length; else instagramFallback">
+      <div class="instagram-grid">
+        <a
+          class="instagram-card"
+          *ngFor="let post of instagramPosts; index as i; trackBy: trackByInstagram"
+          [href]="post.permalink"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="instagram-media">
+            <img
+              [src]="post.imageUrl"
+              [alt]="'Publicación de Instagram ' + (i + 1)"
+              referrerpolicy="no-referrer"
+              crossorigin="anonymous"
+              loading="lazy"
+            >
+          </div>
+          <div class="instagram-caption">
+            <p>{{ post.caption }}</p>
+          </div>
+        </a>
       </div>
-      <div class="galeria-item">
-        <div class="imagen-placeholder">
-          <span class="imagen-icon"></span>
-          <p>Laboratorio de Informática</p>
-        </div>
-      </div>
-      <div class="galeria-item">
-        <div class="imagen-placeholder">
-          <span class="imagen-icon"></span>
-          <p>Laboratorio de Electrónica</p>
-        </div>
-      </div>
-      <div class="galeria-item">
-        <div class="imagen-placeholder">
-          <span class="imagen-icon"></span>
-          <p>Biblioteca</p>
-        </div>
-      </div>
-      <div class="galeria-item">
-        <div class="imagen-placeholder">
-          <span class="imagen-icon"></span>
-          <p>Espacio de Recreación</p>
-        </div>
-      </div>
-      <div class="galeria-item">
-        <div class="imagen-placeholder">
-          <span class="imagen-icon"></span>
-          <p>Hall Principal</p>
-        </div>
-      </div>
-    </div>
+    </ng-container>
+
+    <ng-template #instagramFallback>
+      <p class="instagram-empty">
+        Seguinos en
+        <a href="https://www.instagram.com/ifts.14/" target="_blank" rel="noopener">
+          &#64;ifts.14
+        </a>
+        para ver nuestras novedades.
+      </p>
+    </ng-template>
   </section>
 
   <!-- Agenda Institucional -->

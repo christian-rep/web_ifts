@@ -376,6 +376,165 @@ $color-border: #e0e0e0;
   color: $color-primary;
 }
 
+// Requisitos detallados
+.requisitos-detallados {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+
+  .requisito-seccion {
+    background: $color-white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid $color-accent;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    h4 {
+      color: $color-primary;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    ol, ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      
+      li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+        color: $color-text;
+      }
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+      color: $color-text;
+    }
+
+    .email-contacto {
+      margin-top: 0.5rem;
+      
+      a {
+        color: $color-accent;
+        font-weight: 600;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &.casos-especiales {
+      border-left-color: #ff9800;
+      background: linear-gradient(to bottom, rgba(255, 152, 0, 0.05), $color-white);
+    }
+
+    &.consultas-box {
+      border-left-color: $color-secondary;
+      text-align: center;
+      
+      h4 {
+        margin-bottom: 0.5rem;
+      }
+
+      .email-contacto {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+// Visor de Slides
+.info-adicional {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: $color-background;
+  border-radius: 8px;
+
+  h4 {
+    color: $color-primary;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    color: $color-secondary;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  p {
+    line-height: 1.6;
+    color: $color-text;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: $color-accent;
+    text-decoration: none;
+    font-weight: 600;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .slides-viewer-container {
+    margin: 2rem auto;
+    padding: 0;
+    background: transparent;
+    border-radius: 8px;
+    max-width: 700px;
+    max-height: 700px;
+
+    .slides-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0;
+      padding: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid $color-border;
+      background: $color-white;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid $color-border;
+      border-bottom: none;
+
+      h5 {
+        margin: 0;
+      }
+
+      .btn-ver-presentacion {
+        background: $color-accent;
+        color: $color-white;
+        padding: 8px 16px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: darken($color-accent, 10%);
+          text-decoration: none;
+        }
+      }
+    }
+
+    iframe {
+      border: 1px solid $color-border;
+      border-radius: 0 0 8px 8px;
+      display: block;
+      background: $color-white;
+      width: 100%;
+    }
+  }
+}
+
 // Responsive
 @media (max-width: 768px) {
   .hero-carreras {
