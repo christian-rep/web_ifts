@@ -49,7 +49,7 @@ export class CarrerasComponent implements OnInit {
         { titulo: 'Duración', valor: '3 años', icono: 'duration' },
         { titulo: 'Modalidad', valor: 'Presencial', icono: 'modality' },
         { titulo: 'Turno', valor: 'Tarde/Noche', icono: 'schedule' },
-        { titulo: 'Sede', valor: 'IFTS N° 14', icono: 'location' }
+        { titulo: 'Sede', valor: 'IFTS N° 14 - Cochabamba 2830 (CABA)', icono: 'location' }
       ],
       perfilEgresado: [
         'Diseñar y programar sistemas embebidos',
@@ -59,11 +59,10 @@ export class CarrerasComponent implements OnInit {
         'Gestionar proyectos de desarrollo tecnológico'
       ],
       requisitos: [
-        'Secundario completo',
-        'Fotocopia de DNI (primera y segunda hoja)',
-        '2 fotos carnet 4x4',
-        'Certificado de aptitud física',
-        'Formulario de inscripción completo'
+        ' • Secundario completo',
+        ' • Fotocopia de DNI (primera y segunda hoja)',
+        ' • 2 fotos carnet 4x4',
+        ' • Formulario de inscripción completo'
       ]
     },
     {
@@ -77,7 +76,7 @@ export class CarrerasComponent implements OnInit {
         { titulo: 'Duración', valor: '3 años', icono: 'duration' },
         { titulo: 'Modalidad', valor: 'Presencial', icono: 'modality' },
         { titulo: 'Turno', valor: 'Mañana/Tarde', icono: 'schedule' },
-        { titulo: 'Sede', valor: 'IFTS N° 14', icono: 'location' }
+        { titulo: 'Sede', valor: 'IFTS N° 14 - Cochabamba 2830 (CABA)', icono: 'location' }
       ],
       perfilEgresado: [
         'Realizar diagnósticos y auditorías energéticas',
@@ -178,7 +177,22 @@ export class CarrerasComponent implements OnInit {
   }
 
   descargarPDF(carreraId: string): void {
-    console.log(`Descargando PDF para: ${carreraId}`);
-    alert(`Iniciando descarga del plan de estudios de ${carreraId}`);
+    const pdfUrls: { [key: string]: string } = {
+      'sistemas': '/assets/Tecnicatura Superior en Sistemas Embebidos e Internet de las Cosas.docx.pdf',
+      'eficiencia': '/assets/Tecnicatura Superior en Eficiencia Energética.docx.pdf'
+    };
+
+    const url = pdfUrls[carreraId];
+    if (url) {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = url.split('/').pop() || 'programa-estudio.pdf';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      console.error(`No se encontró PDF para la carrera: ${carreraId}`);
+    }
   }
 }

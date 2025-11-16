@@ -9,9 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [RouterOutlet, NavbarComponent, FooterComponent],
   template: `
     <app-navbar />
-    <main class="main-content">
-      <router-outlet />
-    </main>
+    <router-outlet />
     <app-footer />
   `,
   styleUrls: ['./app.component.scss']

@@ -1,7 +1,7 @@
-// Variables de colores (igual que carreras)
-$color-primary: #2c5aa0;
-$color-secondary: #1e3a5f;
-$color-accent: #00a8e8;
+// Variables de colores oficiales IFTS N°14
+$color-primary: #00A8E8;  // Celeste para estudiantes
+$color-secondary: #0E4576;  // Azul
+$color-accent: #00A8E8;  // Celeste
 $color-background: #f8f9fa;
 $color-text: #333333;
 $color-white: #ffffff;
@@ -24,7 +24,7 @@ $color-border: #e0e0e0;
 
 // Hero Section (igual que carreras)
 .hero-estudiantes {
-  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  background: linear-gradient(135deg, $color-secondary 0%, darken($color-secondary, 10%) 100%);
   color: $color-white;
   padding: 80px 0 60px;
   text-align: center;
@@ -47,7 +47,7 @@ $color-border: #e0e0e0;
   .hero-divider {
     width: 80px;
     height: 3px;
-    background: $color-accent;
+    background: $color-primary;
     margin: 0 auto;
   }
 }
@@ -92,7 +92,7 @@ $color-border: #e0e0e0;
     .servicio-icon {
       font-size: 1.5rem;
       margin-right: 1rem;
-      color: $color-primary;
+      color: $color-secondary;
       width: 40px;
       height: 40px;
       background: $color-background;
@@ -106,7 +106,7 @@ $color-border: #e0e0e0;
     .servicio-title {
       flex: 1;
       font-size: 1.3rem;
-      color: $color-primary;
+      color: $color-secondary;
       margin: 0;
       font-weight: 600;
     }
@@ -114,7 +114,7 @@ $color-border: #e0e0e0;
     .servicio-arrow {
       font-size: 1.5rem;
       font-weight: 300;
-      color: $color-primary;
+      color: $color-secondary;
       transition: transform 0.3s ease;
     }
   }
@@ -122,10 +122,10 @@ $color-border: #e0e0e0;
   .servicio-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.5s ease;
 
     &.active {
-      max-height: 1000px;
+      max-height: 5000px;
     }
   }
 }
@@ -144,7 +144,7 @@ $color-border: #e0e0e0;
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: $color-primary;
+    color: $color-secondary;
   }
 
   .form-select {
@@ -159,26 +159,50 @@ $color-border: #e0e0e0;
 
     &:focus {
       outline: none;
-      border-color: $color-primary;
+      border-color: $color-secondary;
     }
+  }
+}
+
+// Información de horarios
+.horario-info {
+  h4 {
+    color: $color-secondary;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  .periodo-academico {
+    color: $color-primary;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
   }
 }
 
 // Tabla de horarios
 .horario-tabla {
-  h4 {
+  margin-bottom: 2.5rem;
+
+  h5 {
     color: $color-primary;
     margin-bottom: 1rem;
     font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    background: $color-background;
+    border-radius: 5px;
+    border-left: 4px solid $color-accent;
   }
 
   .tabla-horarios {
     overflow-x: auto;
+    margin-bottom: 1rem;
     
     table {
       width: 100%;
       border-collapse: collapse;
       background: $color-white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 
       th, td {
         padding: 12px 15px;
@@ -187,7 +211,7 @@ $color-border: #e0e0e0;
       }
 
       th {
-        background: $color-primary;
+        background: $color-secondary;
         color: $color-white;
         font-weight: 600;
         text-transform: uppercase;
@@ -198,7 +222,25 @@ $color-border: #e0e0e0;
       tr:hover {
         background: $color-background;
       }
+
+      td {
+        color: $color-text;
+      }
     }
+  }
+}
+
+.horario-nota {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1rem;
+
+  p {
+    margin: 0;
+    color: #856404;
+    font-size: 0.9rem;
   }
 }
 
@@ -260,16 +302,62 @@ $color-border: #e0e0e0;
 }
 
 .info-box {
-  background: $color-white;
+  background: $color-background;
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid $color-border;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid $color-accent;
 
   h5 {
-    color: $color-primary;
     margin: 0 0 1rem 0;
+    color: $color-primary;
     font-size: 1.1rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.2rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      color: $color-text;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: $color-text;
+  }
+}
+
+// Aula Virtual
+.acceso-rapido {
+  text-align: center;
+
+  .btn-plataforma {
+    display: inline-block;
+    background: $color-primary;
+    color: $color-white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: darken($color-primary, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+  }
+}
+
+.ayuda-links {
+  text-align: left;
+
+  h5 {
+    color: $color-secondary;
+    margin-bottom: 1rem;
   }
 
   ul {
@@ -278,74 +366,23 @@ $color-border: #e0e0e0;
     margin: 0;
 
     li {
-      padding: 0.3rem 0;
-      padding-left: 1.2rem;
-      position: relative;
+      margin-bottom: 0.5rem;
 
-      &:before {
-        content: "";
-        color: $color-accent;
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-      }
-    }
-  }
+      a {
+        color: $color-primary;
+        text-decoration: none;
+        transition: color 0.3s ease;
 
-  p {
-    margin: 0;
-    line-height: 1.5;
-  }
-}
-
-// Aula virtual
-.acceso-rapido {
-  .btn-plataforma {
-    display: inline-flex;
-    align-items: center;
-    background: $color-primary;
-    color: $color-white;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    margin-bottom: 2rem;
-
-    &:hover {
-      background-color: #1e3a5f;
-    }
-  }
-
-  .ayuda-links {
-    h5 {
-      color: $color-primary;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-
-      li {
-        margin-bottom: 0.5rem;
-
-        a {
-          color: $color-accent;
-          text-decoration: none;
-          transition: color 0.3s ease;
-
-          &:hover {
-            color: $color-primary;
-            text-decoration: underline;
-          }
+        &:hover {
+          color: darken($color-primary, 20%);
+          text-decoration: underline;
         }
       }
     }
   }
 }
 
-// Grid de universidades (articulaciones)
+// Articulaciones
 .universidades-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -354,22 +391,20 @@ $color-border: #e0e0e0;
 }
 
 .universidad-card {
-  background: $color-white;
+  background: $color-background;
   padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid $color-border;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
   h5 {
-    color: $color-primary;
     margin: 0 0 0.5rem 0;
+    color: $color-primary;
     font-size: 1.1rem;
   }
 
   p {
     margin: 0 0 1rem 0;
     color: $color-text;
-    opacity: 0.8;
   }
 
   .badge {
@@ -382,7 +417,7 @@ $color-border: #e0e0e0;
   }
 }
 
-// Lista de becas
+// Becas
 .becas-list {
   display: flex;
   flex-direction: column;
@@ -393,73 +428,151 @@ $color-border: #e0e0e0;
 .beca-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 1.5rem;
   background: $color-background;
   border-radius: 8px;
   border-left: 4px solid $color-accent;
+  gap: 1rem;
 
-  h5 {
-    margin: 0 0 0.5rem 0;
-    color: $color-primary;
-    font-size: 1.1rem;
-  }
+  .beca-info {
+    flex: 1;
 
-  p {
-    margin: 0;
-    color: $color-text;
-    opacity: 0.8;
+    h5 {
+      margin: 0 0 0.5rem 0;
+      color: $color-primary;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      color: $color-text;
+      line-height: 1.5;
+
+      &:first-of-type {
+        opacity: 0.9;
+      }
+    }
+
+    ul {
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+      
+      li {
+        margin: 0.3rem 0;
+        color: $color-text;
+        line-height: 1.4;
+      }
+    }
+
+    .beca-link {
+      color: $color-primary;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: darken($color-primary, 15%);
+        text-decoration: underline;
+      }
+    }
   }
 
   .beca-estado {
-    background: $color-accent;
-    color: $color-white;
-    padding: 4px 12px;
+    padding: 6px 12px;
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 600;
     white-space: nowrap;
+    align-self: flex-start;
 
     &.disponible {
-      background: #28a745;
+      background: #d4edda;
+      color: #155724;
     }
-    
+
     &.cerrado {
-      background: #6c757d;
+      background: #f8d7da;
+      color: #721c24;
     }
   }
 }
 
-// Servicios de apoyo
+// Apoyo a estudiantes - Lista de ayudantes
+.ayudantes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.ayudante-item {
+  background: $color-background;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid $color-border;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 4px 12px rgba(0, 168, 232, 0.15);
+    transform: translateY(-2px);
+  }
+
+  h5 {
+    margin: 0;
+    color: $color-secondary;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+
+// Estilos antiguos para compatibilidad
 .servicios-apoyo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin: 2rem 0;
 }
 
 .servicio-apoyo {
-  background: $color-white;
+  background: $color-background;
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid $color-border;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
+  border: 1px solid $color-border;
 
   h5 {
-    color: $color-primary;
     margin: 0 0 1rem 0;
+    color: $color-primary;
     font-size: 1.1rem;
   }
 
   p {
     margin: 0 0 1.5rem 0;
-    line-height: 1.5;
     color: $color-text;
+    line-height: 1.5;
   }
 }
 
-// Botones (mismo estilo que carreras)
+.contacto-urgencia {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+
+  p {
+    margin: 0;
+    color: #856404;
+    font-weight: 600;
+  }
+}
+
+// Botones generales
 .btn-primary {
   background: $color-primary;
   color: $color-white;
@@ -469,9 +582,12 @@ $color-border: #e0e0e0;
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 
   &:hover {
-    background-color: #1e3a5f;
+    background-color: #0086c0;
   }
 }
 
@@ -479,7 +595,7 @@ $color-border: #e0e0e0;
   background: transparent;
   color: $color-primary;
   border: 2px solid $color-primary;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
@@ -491,27 +607,13 @@ $color-border: #e0e0e0;
   }
 }
 
-// Información de contacto
-.contacto-info,
-.contacto-urgencia {
-  background: $color-background;
-  padding: 1rem 1.5rem;
-  border-radius: 5px;
-  margin-top: 1.5rem;
-
-  p {
-    margin: 0;
-    color: $color-text;
-  }
-}
-
 // Responsive
 @media (max-width: 768px) {
   .hero-estudiantes {
     padding: 60px 0 40px;
 
     .hero-title {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
 
     .hero-subtitle {
@@ -520,17 +622,21 @@ $color-border: #e0e0e0;
   }
 
   .servicio-header {
-    padding: 1rem;
+    padding: 1rem !important;
 
     .servicio-icon {
-      font-size: 1.2rem;
-      width: 35px;
-      height: 35px;
+      width: 35px !important;
+      height: 35px !important;
+      font-size: 1.2rem !important;
     }
 
     .servicio-title {
-      font-size: 1.1rem;
+      font-size: 1.1rem !important;
     }
+  }
+
+  .servicio-content > div {
+    padding: 1.5rem !important;
   }
 
   .documento-item {
@@ -554,13 +660,112 @@ $color-border: #e0e0e0;
     }
   }
 
-  .info-boxes,
-  .universidades-grid,
-  .servicios-apoyo {
-    grid-template-columns: 1fr;
+  .tabla-horarios {
+    table {
+      font-size: 0.9rem;
+
+      th, td {
+        padding: 8px 10px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-estudiantes .hero-title {
+    font-size: 1.8rem;
   }
 
-  .servicio-content > div {
-    padding: 1.5rem;
+  .servicios-grid {
+    gap: 0.5rem !important;
   }
+
+  .info-boxes,
+  .universidades-grid,
+  .servicios-apoyo,
+  .ayudantes-list {
+    grid-template-columns: 1fr !important;
+  }
+
+.seleccion-carrera-prompt {
+  text-align: center;
+  padding: 2rem;
+  color: $color-text;
+  opacity: 0.8;
+}
+
+.botones-descarga {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.becas-acciones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.beca-info {
+  flex: 1;
+  
+  h5 {
+    margin: 0 0 0.5rem 0;
+    color: $color-primary;
+    font-size: 1.1rem;
+  }
+  
+  p {
+    margin: 0.2rem 0;
+    color: $color-text;
+    opacity: 0.8;
+    font-size: 0.9rem;
+  }
+}
+
+// Estados de badges para articulaciones
+.badge {
+  &.disponible {
+    background: #28a745;
+    color: white;
+  }
+  
+  &.negociacion {
+    background: #ffc107;
+    color: black;
+  }
+  
+  &.revision {
+    background: #17a2b8;
+    color: white;
+  }
+}
+
+.plataforma-info {
+  margin: 2rem 0;
+  
+  .info-box {
+    background: $color-background;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid $color-accent;
+    
+    h5 {
+      margin: 0 0 1rem 0;
+      color: $color-primary;
+    }
+    
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      
+      li {
+        margin-bottom: 0.5rem;
+        color: $color-text;
+      }
+    }
+  }
+}
 }
