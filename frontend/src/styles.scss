@@ -22,4 +22,6 @@ body {
   background-color: $color-background;
 }
 
-// Otros estilos globales que necesites...
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
