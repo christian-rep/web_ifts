@@ -1,4 +1,6 @@
-﻿// Variables de colores oficiales IFTS NÂ°14
+@use "sass:color";
+
+// Variables de colores oficiales IFTS N°14
 $color-primary: #EB840F;  // Naranja para institucional
 $color-secondary: #0E4576;  // Azul
 $color-accent: #EB840F;  // Naranja
@@ -20,7 +22,7 @@ $color-border: #e0e0e0;
   text-align: center;
   margin-bottom: 3rem;
   padding: 2rem;
-  background: linear-gradient(135deg, $color-secondary 0%, darken($color-secondary, 10%) 100%);
+  background: linear-gradient(135deg, $color-secondary 0%, color.adjust($color-secondary, $lightness: -10%) 100%);
   color: $color-white;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -102,7 +104,7 @@ section {
 
 .avatar-icon {
   font-size: 3rem;
-  background: linear-gradient(135deg, $color-secondary, darken($color-secondary, 15%));
+  background: linear-gradient(135deg, $color-secondary, color.adjust($color-secondary, $lightness: -15%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -114,12 +116,14 @@ section {
   font-size: 1.3rem;
   font-weight: 600;
 }
+
 .profesor-imagen img {
   width: 100%;
-  height: auto; // O un tamaño fijo como 200px
+  height: auto;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+
 .cargo {
   color: $color-secondary;
   font-weight: 600;
@@ -157,7 +161,7 @@ section {
 }
 
 .carousel-control:hover:not(:disabled) {
-  background: darken($color-secondary, 10%);
+  background: color.adjust($color-secondary, $lightness: -10%);
   transform: scale(1.05);
 }
 
@@ -255,7 +259,7 @@ section {
 }
 
 .indicator:hover {
-  background: lighten($color-secondary, 15%);
+  background: color.adjust($color-secondary, $lightness: 15%);
 }
 
 .indicator.active {
@@ -315,7 +319,7 @@ section {
 }
 
 .profesor-modal-cerrar:hover {
-  color: darken($color-secondary, 10%);
+  color: color.adjust($color-secondary, $lightness: -10%);
   transform: scale(1.05);
 }
 
@@ -408,7 +412,7 @@ section {
 }
 
 .instagram-follow:hover {
-  background: darken($color-secondary, 5%);
+  background: color.adjust($color-secondary, $lightness: -5%);
   transform: translateY(-2px);
 }
 
@@ -477,6 +481,7 @@ section {
 .instagram-empty a:hover {
   text-decoration: underline;
 }
+
 // Agenda Institucional
 .agenda-content {
   display: flex;
@@ -499,7 +504,7 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-// TamaÃ±o mÃ¡s grande para pantallas grandes
+// Tamaño más grande para pantallas grandes
 @media (min-width: 1200px) {
   .agenda-imagen {
     max-width: 800px;
@@ -668,4 +673,3 @@ section {
     height: 220px;
   }
 }
-

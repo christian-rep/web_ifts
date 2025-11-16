@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Variables de colores oficiales IFTS N°14
 $color-primary: #00A8E8;  // Celeste para carreras
 $color-secondary: #0E4576;  // Azul
@@ -13,7 +15,7 @@ $color-border: #e0e0e0;
 
 // Hero Section estilo Teclab
 .hero-carreras {
-  background: linear-gradient(135deg, $color-secondary 0%, darken($color-secondary, 10%) 100%);
+  background: linear-gradient(135deg, $color-secondary 0%, color.adjust($color-secondary, $lightness: -10%) 100%);
   color: $color-white;
   padding: 80px 0 60px;
   text-align: center;
@@ -149,7 +151,7 @@ $color-border: #e0e0e0;
       transition: background 0.3s ease;
 
       &:hover {
-        background: darken($color-primary, 10%);
+        background: color.adjust($color-primary, $lightness: -10%);
       }
     }
 
@@ -205,7 +207,7 @@ $color-border: #e0e0e0;
         transition: background 0.3s ease;
 
         &:hover {
-          background: darken($color-accent, 10%);
+          background: color.adjust($color-accent, $lightness: -10%);
         }
       }
     }
@@ -299,7 +301,7 @@ $color-border: #e0e0e0;
   transition: background 0.3s ease;
 
   &:hover {
-    background: darken($color-background, 5%);
+    background: color.adjust($color-background, $lightness: -5%);
   }
 
   .acordeon-icon {
@@ -519,7 +521,7 @@ $color-border: #e0e0e0;
         transition: background 0.3s ease;
 
         &:hover {
-          background: darken($color-accent, 10%);
+          background: color.adjust($color-accent, $lightness: -10%);
           text-decoration: none;
         }
       }
